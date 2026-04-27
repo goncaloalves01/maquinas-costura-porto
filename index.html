@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head> <link rel="icon" type="image/png" href="icon.png">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Máquinas de Costura Porto</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- SEO -->
+<title>Máquinas de Costura Porto — Venda, Reparação & Restauro</title>
+<meta name="description" content="Especialistas em máquinas de costura no Porto. Venda, reparação, manutenção e restauro de máquinas antigas Singer, Pfaff e outras. Loja no coração do Porto.">
+<meta name="keywords" content="máquinas de costura Porto, reparação máquinas costura, restauro Singer, Pfaff Porto, acessórios costura Porto">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://maquinasdecosturaporto.pt/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://maquinasdecosturaporto.pt/">
+<meta property="og:title" content="Máquinas de Costura Porto — Venda, Reparação & Restauro">
+<meta property="og:description" content="Especialistas em máquinas de costura no Porto. Venda, reparação e restauro de máquinas antigas Singer, Pfaff e outras.">
+<meta property="og:image" content="https://maquinasdecosturaporto.pt/icon.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Máquinas de Costura Porto",
+  "description": "Venda, reparação, manutenção e restauro de máquinas de costura. Especialistas em modelos antigos.",
+  "url": "https://maquinasdecosturaporto.pt",
+  "telephone": "+351919360824",
+  "email": "maquinasdecosturaporto@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Fernandes Costa 15",
+    "postalCode": "4100-241",
+    "addressLocality": "Porto",
+    "addressCountry": "PT"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
+  ],
+  "image": "https://maquinasdecosturaporto.pt/icon.png"
+}
+</script>
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --cream: #F7F3EE;
+    --cream-dark: #EDE8E1;
     --dark: #1C1C1A;
     --mid: #4A4640;
     --muted: #8C8480;
@@ -29,76 +77,128 @@
     line-height: 1.7;
   }
 
-  /* NAV */
+  /* ── NAV ── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(247,243,238,0.92);
-    backdrop-filter: blur(8px);
+    background: rgba(247,243,238,0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
+    padding: 0 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 68px;
   }
 
-  .nav-logo {
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+    mix-blend-mode: multiply;
+  }
+
+  .nav-logo-text {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--dark);
-    text-decoration: none;
     letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  .nav-logo-text small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
   }
 
   .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.25rem;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links a {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     font-weight: 400;
     color: var(--mid);
     text-decoration: none;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     transition: color 0.2s;
   }
 
   .nav-links a:hover { color: var(--accent); }
 
-  /* HERO */
+  .nav-cta {
+    background: var(--accent) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: #6B2020 !important; }
+
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 6rem 2rem 4rem;
-    max-width: 1100px;
+    padding: 7rem 2.5rem 5rem;
+    max-width: 1160px;
     margin: 0 auto;
-    gap: 4rem;
+    gap: 5rem;
   }
 
   .hero-text { flex: 1; }
 
   .hero-eyebrow {
-    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
   }
 
   .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.6rem, 4.5vw, 3.8rem);
     font-weight: 600;
-    line-height: 1.15;
+    line-height: 1.12;
     color: var(--dark);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
+    animation: fadeUp 0.6s 0.1s ease both;
   }
 
   .hero-title em {
@@ -110,9 +210,18 @@
     font-size: 1.05rem;
     color: var(--mid);
     font-weight: 300;
-    max-width: 480px;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
+    max-width: 460px;
+    margin-bottom: 2.75rem;
+    line-height: 1.85;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
   }
 
   .hero-cta {
@@ -121,20 +230,33 @@
     gap: 0.5rem;
     background: var(--accent);
     color: var(--white);
-    padding: 0.875rem 2rem;
-    font-size: 0.9rem;
+    padding: 0.9rem 2.25rem;
+    font-size: 0.875rem;
     font-weight: 500;
     text-decoration: none;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     transition: background 0.2s, transform 0.15s;
   }
 
   .hero-cta:hover { background: #6B2020; transform: translateY(-1px); }
 
+  .hero-tel {
+    font-size: 0.875rem;
+    color: var(--mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .hero-tel:hover { color: var(--accent); }
+
   .hero-visual {
-    flex: 1;
-    max-width: 440px;
+    flex: 0 0 420px;
     position: relative;
+    animation: fadeUp 0.8s 0.2s ease both;
   }
 
   .hero-img-block {
@@ -151,232 +273,289 @@
     opacity: 0.85;
   }
 
+  /* placeholder quando não há foto */
   .hero-img-placeholder {
     width: 100%; height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    color: rgba(255,255,255,0.4);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    gap: 1.25rem;
+    background: linear-gradient(145deg, #242420 0%, #1C1C1A 100%);
   }
 
-  .hero-img-placeholder svg { opacity: 0.3; }
+  .hero-img-placeholder .logo-big {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    opacity: 0.2;
+  }
+
+  .hero-img-placeholder span {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+  }
 
   .hero-tag {
     position: absolute;
     bottom: -1rem;
-    left: -1.5rem;
+    left: -1.75rem;
     background: var(--accent);
     color: var(--white);
     padding: 1rem 1.5rem;
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-style: italic;
+    letter-spacing: 0.01em;
   }
 
-  /* DIVIDER */
-  .section-divider {
-    width: 48px;
-    height: 2px;
-    background: var(--accent);
-    margin: 0 auto 3rem;
+  /* pills de confiança */
+  .hero-trust {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
   }
 
-  /* SECTION BASE */
-  section {
-    padding: 6rem 2rem;
+  .trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.03em;
   }
 
-  .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
+  .trust-pill::before {
+    content: '✓';
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 700;
   }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 2.5rem; }
+
+  .section-inner { max-width: 1160px; margin: 0 auto; }
 
   .section-label {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
   }
 
   .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
     font-weight: 600;
     color: var(--dark);
     margin-bottom: 1rem;
+    line-height: 1.2;
   }
 
   .section-sub {
     font-size: 1rem;
     color: var(--mid);
     font-weight: 300;
-    max-width: 560px;
+    max-width: 520px;
     margin-bottom: 3rem;
+    line-height: 1.8;
   }
 
-  /* PRODUTOS */
-  #produtos { background: var(--white); }
+  /* ── SERVIÇOS ── */
+  #servicos { background: var(--white); }
 
   .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5px;
+    gap: 1px;
     background: var(--border);
     border: 1px solid var(--border);
   }
 
   .product-card {
     background: var(--white);
-    padding: 2rem;
+    padding: 2.25rem 2rem;
     transition: background 0.2s;
+    position: relative;
   }
 
   .product-card:hover { background: var(--cream); }
 
+  .product-card.featured::after {
+    content: 'Especialidade';
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.2rem 0.6rem;
+  }
+
   .product-icon {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background: var(--accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
-
-  .product-icon svg { color: var(--accent); }
 
   .product-name {
     font-family: 'Playfair Display', serif;
     font-size: 1.15rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     color: var(--dark);
+    line-height: 1.3;
   }
 
   .product-desc {
     font-size: 0.875rem;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
-  /* PREÇOS */
-  #precos { background: var(--cream); }
-
-  .precos-table-wrap {
-    overflow-x: auto;
-  }
-
-  .precos-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-  }
-
-  .precos-table th {
-    background: var(--dark);
-    color: var(--white);
-    text-align: left;
-    padding: 1rem 1.25rem;
-    font-weight: 500;
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .precos-table td {
-    padding: 0.9rem 1.25rem;
-    border-bottom: 1px solid var(--border);
-    color: var(--mid);
-  }
-
-  .precos-table tr:last-child td { border-bottom: none; }
-
-  .precos-table tr:hover td { background: var(--white); }
-
-  .price-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--accent);
-  }
-
-  /* GALERIA */
+  /* ── GALERIA ── */
   #galeria { background: var(--dark); }
   #galeria .section-title { color: var(--white); }
   #galeria .section-label { color: var(--accent); }
-  #galeria .section-sub { color: rgba(255,255,255,0.5); }
+  #galeria .section-label::before { background: var(--accent); }
+  #galeria .section-sub { color: rgba(255,255,255,0.45); }
 
-  .gallery-grid {
+  .gallery-pairs {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .gallery-pair {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
-    gap: 8px;
+    grid-template-columns: 1fr 48px 1fr;
+    gap: 0;
+    align-items: center;
   }
 
-  .gallery-item {
-    background: #2A2A28;
-    aspect-ratio: 1;
+  .gallery-slot {
+    aspect-ratio: 4/3;
     overflow: hidden;
+    background: #1C1C1A;
     position: relative;
-    cursor: pointer;
   }
 
-  .gallery-item:first-child {
-    grid-row: span 2;
-    aspect-ratio: auto;
-  }
-
-  .gallery-item img {
+  .gallery-slot img {
     width: 100%; height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
+    transition: transform 0.5s ease;
   }
 
-  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-slot:hover img { transform: scale(1.04); }
 
-  .gallery-placeholder {
+  /* placeholder cinza escuro enquanto não há fotos */
+  .gallery-slot-placeholder {
     width: 100%; height: 100%;
-    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: rgba(255,255,255,0.12);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: #222220;
+  }
+
+  .gallery-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .gallery-arrow-icon {
+    background: var(--accent);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,255,255,0.15);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    flex-direction: column;
-    gap: 0.75rem;
   }
 
-  /* LOCALIZAÇÃO */
-  #localizacao { background: var(--white); }
+  .gallery-labels {
+    display: grid;
+    grid-template-columns: 1fr 48px 1fr;
+    margin-top: 6px;
+  }
+
+  .gallery-label-before {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .gallery-label-after {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+  }
+
+  /* Como adicionar fotos: substitui o div.gallery-slot-placeholder pelo:
+     <img src="antes-1.jpg" alt="Máquina Singer antes do restauro"> */
+
+  /* ── LOCALIZAÇÃO ── */
+  #localizacao { background: var(--cream); }
 
   .location-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
     align-items: start;
   }
-
-  .location-info { }
 
   .location-detail {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    margin-bottom: 1.75rem;
+    gap: 0.3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
   }
 
+  .location-detail:last-of-type { border-bottom: none; margin-bottom: 0; }
+
   .location-detail-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--muted);
     font-weight: 500;
@@ -386,91 +565,141 @@
     font-size: 1rem;
     color: var(--dark);
     font-weight: 400;
+    line-height: 1.7;
   }
 
   .location-detail-value a {
     color: var(--accent);
     text-decoration: none;
+    font-weight: 500;
   }
+
+  .location-detail-value a:hover { text-decoration: underline; }
 
   .map-embed {
     width: 100%;
-    height: 380px;
-    background: var(--cream);
-    border: 1px solid var(--border);
+    height: 420px;
+    background: var(--border);
     overflow: hidden;
+    border: 1px solid var(--border);
   }
 
-  .map-embed iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
+  .map-embed iframe { width: 100%; height: 100%; border: none; }
 
-  /* FOOTER */
+  /* ── FOOTER ── */
   footer {
     background: var(--dark);
-    color: rgba(255,255,255,0.4);
-    text-align: center;
-    padding: 2rem;
+    color: rgba(255,255,255,0.35);
+    padding: 2.5rem 2.5rem;
     font-size: 0.8rem;
     letter-spacing: 0.05em;
   }
 
-  footer span { color: var(--accent); }
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-  /* MOBILE */
-  @media (max-width: 768px) {
-    .hero { flex-direction: column; gap: 3rem; padding-top: 5rem; }
-    .hero-visual { max-width: 100%; width: 100%; }
-    .hero-tag { left: 0; bottom: -1rem; }
-    .location-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-item:first-child { grid-row: span 1; aspect-ratio: 1; }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .footer-brand img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.35;
+  }
+
+  footer span { color: rgba(255,255,255,0.6); }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── ANIMAÇÕES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .hero { flex-direction: column; gap: 3rem; padding-top: 6rem; }
+    .hero-visual { flex: none; width: 100%; max-width: 100%; }
+    .hero-tag { left: 0; }
+    .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
   }
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+  @media (max-width: 600px) {
+    section { padding: 4rem 1.25rem; }
+    .hero { padding: 5.5rem 1.25rem 3rem; }
+    .gallery-pair { grid-template-columns: 1fr 36px 1fr; }
+    .gallery-labels { grid-template-columns: 1fr 36px 1fr; }
   }
-
-  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-  .hero-title { animation: fadeUp 0.6s 0.1s ease both; }
-  .hero-desc { animation: fadeUp 0.6s 0.2s ease both; }
-  .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
-  .hero-visual { animation: fadeUp 0.8s 0.2s ease both; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">Máquinas de Costura Porto</a>
+  <a href="#" class="nav-brand">
+    <img src="icon.png" alt="Máquinas de Costura Porto logo" class="nav-logo-img">
+    <span class="nav-logo-text">
+      Máquinas de Costura Porto
+      <small>Venda · Reparação · Restauro</small>
+    </span>
+  </a>
   <ul class="nav-links">
     <li><a href="#servicos">Serviços</a></li>
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#localizacao">Localização</a></li>
+    <li><a href="tel:+351919360824" class="nav-cta">Ligar agora</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- ── HERO ── -->
 <div class="hero">
   <div class="hero-text">
-    <p class="hero-eyebrow">Porto · Desde sempre</p>
-    <h1 class="hero-title">Máquinas de costura,<br><em>tratadas com arte</em></h1>
-    <p class="hero-desc">Venda, reparação, restauro e acessórios de máquinas de costura. Especialistas em modelos antigos — damos nova vida a peças com história.</p>
-    <a href="#servicos" class="hero-cta">Ver serviços →</a>
+    <p class="hero-eyebrow">Porto · Especialistas em máquinas de costura</p>
+    <h1 class="hero-title">
+      Máquinas de costura,<br>
+      <em>tratadas com arte</em>
+    </h1>
+    <p class="hero-desc">
+      Venda, reparação, restauro e acessórios de máquinas de costura.
+      Especialistas em modelos antigos — damos nova vida a peças com história.
+    </p>
+    <div class="hero-actions">
+      <a href="#servicos" class="hero-cta">Ver serviços →</a>
+      <a href="tel:+351919360824" class="hero-tel">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +351 919 360 824
+      </a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-pill">Orçamento gratuito</span>
+      <span class="trust-pill">Peças originais</span>
+      <span class="trust-pill">Diagnóstico rápido</span>
+    </div>
   </div>
+
   <div class="hero-visual">
     <div class="hero-img-block">
-      <!-- Substitui o div abaixo por: <img src="foto-loja.jpg" alt="Loja"> -->
+      <!--
+        FOTO DA LOJA: substitui o div abaixo por
+        <img src="foto-loja.jpg" alt="Loja Máquinas de Costura Porto">
+      -->
       <div class="hero-img-placeholder">
-        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
+        <img src="icon.png" alt="" class="logo-big">
         <span>foto da loja aqui</span>
       </div>
     </div>
@@ -478,7 +707,7 @@
   </div>
 </div>
 
-<!-- SERVIÇOS -->
+<!-- ── SERVIÇOS ── -->
 <section id="servicos">
   <div class="section-inner">
     <p class="section-label">O que fazemos</p>
@@ -489,12 +718,15 @@
       <div class="product-card">
         <div class="product-icon">
           <svg width="20" height="20" fill="none" stroke="#8B2E2E" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
           </svg>
         </div>
         <p class="product-name">Venda de Máquinas</p>
-        <p class="product-desc">Máquinas novas e usadas, domésticas e industriais. Ajudamos a escolher o modelo certo para cada pessoa.</p>
+        <p class="product-desc">Máquinas novas e usadas, domésticas e industriais. Ajudamos a escolher o modelo certo para cada pessoa e cada projeto.</p>
       </div>
+
       <div class="product-card">
         <div class="product-icon">
           <svg width="20" height="20" fill="none" stroke="#8B2E2E" stroke-width="2" viewBox="0 0 24 24">
@@ -502,17 +734,19 @@
           </svg>
         </div>
         <p class="product-name">Reparação & Manutenção</p>
-        <p class="product-desc">Serviço técnico para qualquer marca ou modelo. Diagnóstico rápido, orçamento antes de avançar, preço justo.</p>
+        <p class="product-desc">Serviço técnico para qualquer marca ou modelo. Diagnóstico rápido, orçamento sem compromisso antes de avançar.</p>
       </div>
-      <div class="product-card" style="border-left: 3px solid #8B2E2E;">
+
+      <div class="product-card featured">
         <div class="product-icon">
           <svg width="20" height="20" fill="none" stroke="#8B2E2E" stroke-width="2" viewBox="0 0 24 24">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
         </div>
         <p class="product-name">Restauro de Máquinas Antigas</p>
-        <p class="product-desc">A nossa especialidade. Recuperamos Singer, Pfaff e outras clássicas — limpeza profunda, peças originais, mecanismos revistos ao pormenor. Ideais para quem quer preservar uma peça de família.</p>
+        <p class="product-desc">A nossa especialidade. Recuperamos Singer, Pfaff e outras clássicas — limpeza profunda, peças originais, mecanismos revistos ao pormenor. Ideais para preservar uma peça de família.</p>
       </div>
+
       <div class="product-card">
         <div class="product-icon">
           <svg width="20" height="20" fill="none" stroke="#8B2E2E" stroke-width="2" viewBox="0 0 24 24">
@@ -520,54 +754,103 @@
           </svg>
         </div>
         <p class="product-name">Acessórios & Peças</p>
-        <p class="product-desc">Agulhas, linhas, calcadores, bobinas e peças para modelos descontinuados. Se não tivermos, procuramos.</p>
+        <p class="product-desc">Agulhas, linhas, calcadores, bobinas e peças para modelos descontinuados. Se não tivermos em stock, procuramos.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALERIA -->
+<!-- ── GALERIA ── -->
 <section id="galeria">
   <div class="section-inner">
     <p class="section-label">O nosso trabalho</p>
     <h2 class="section-title">Antes & Depois</h2>
-    <p class="section-sub">O resultado fala por si.</p>
+    <p class="section-sub">Cada restauro é único. O resultado fala por si.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
+    <div class="gallery-pairs">
 
+      <!-- PAR 1 ─────────────────────────────────────
+           Para adicionar fotos reais:
+           Substitui cada <div class="gallery-slot-placeholder">…</div>
+           por: <img src="antes-1.jpg" alt="…">
+           dentro do respetivo <div class="gallery-slot">
+      ──────────────────────────────────────────────── -->
       <div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: relative;">
-          <div class="gallery-item" style="background:#1C1C1A;"></div>
-          <div class="gallery-item" style="background:#2A2A28;"></div>
-          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #8B2E2E; color: white; font-family: 'Playfair Display', serif; font-size: 0.8rem; padding: 0.4rem 0.9rem; letter-spacing: 0.05em; z-index: 2;">→</div>
+        <div class="gallery-pair">
+          <div class="gallery-slot">
+            <!-- ANTES 1: substitui por <img src="antes-1.jpg" alt="Singer antes do restauro"> -->
+            <div class="gallery-slot-placeholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>foto antes</span>
+            </div>
+          </div>
+          <div class="gallery-arrow">
+            <div class="gallery-arrow-icon">→</div>
+          </div>
+          <div class="gallery-slot">
+            <!-- DEPOIS 1: substitui por <img src="depois-1.jpg" alt="Singer após restauro"> -->
+            <div class="gallery-slot-placeholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>foto depois</span>
+            </div>
+          </div>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
-          <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8C8480; text-align: center;">Antes</p>
-          <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8B2E2E; text-align: center;">Depois</p>
+        <div class="gallery-labels">
+          <p class="gallery-label-before">Antes</p>
+          <div></div>
+          <p class="gallery-label-after">Depois</p>
         </div>
       </div>
 
+      <!-- PAR 2 -->
       <div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: relative;">
-          <div class="gallery-item" style="background:#1C1C1A;"></div>
-          <div class="gallery-item" style="background:#2A2A28;"></div>
-          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #8B2E2E; color: white; font-family: 'Playfair Display', serif; font-size: 0.8rem; padding: 0.4rem 0.9rem; letter-spacing: 0.05em; z-index: 2;">→</div>
+        <div class="gallery-pair">
+          <div class="gallery-slot">
+            <div class="gallery-slot-placeholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>foto antes</span>
+            </div>
+          </div>
+          <div class="gallery-arrow">
+            <div class="gallery-arrow-icon">→</div>
+          </div>
+          <div class="gallery-slot">
+            <div class="gallery-slot-placeholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>foto depois</span>
+            </div>
+          </div>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
-          <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8C8480; text-align: center;">Antes</p>
-          <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8B2E2E; text-align: center;">Depois</p>
+        <div class="gallery-labels">
+          <p class="gallery-label-before">Antes</p>
+          <div></div>
+          <p class="gallery-label-after">Depois</p>
         </div>
       </div>
 
+      <!-- PAR 3 -->
       <div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: relative;">
-          <div class="gallery-item" style="background:#1C1C1A;"></div>
-          <div class="gallery-item" style="background:#2A2A28;"></div>
-          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #8B2E2E; color: white; font-family: 'Playfair Display', serif; font-size: 0.8rem; padding: 0.4rem 0.9rem; letter-spacing: 0.05em; z-index: 2;">→</div>
+        <div class="gallery-pair">
+          <div class="gallery-slot">
+            <div class="gallery-slot-placeholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>foto antes</span>
+            </div>
+          </div>
+          <div class="gallery-arrow">
+            <div class="gallery-arrow-icon">→</div>
+          </div>
+          <div class="gallery-slot">
+            <div class="gallery-slot-placeholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>foto depois</span>
+            </div>
+          </div>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;">
-          <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8C8480; text-align: center;">Antes</p>
-          <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8B2E2E; text-align: center;">Depois</p>
+        <div class="gallery-labels">
+          <p class="gallery-label-before">Antes</p>
+          <div></div>
+          <p class="gallery-label-after">Depois</p>
         </div>
       </div>
 
@@ -575,7 +858,7 @@
   </div>
 </section>
 
-<!-- LOCALIZAÇÃO -->
+<!-- ── LOCALIZAÇÃO ── -->
 <section id="localizacao">
   <div class="section-inner">
     <p class="section-label">Onde estamos</p>
@@ -585,7 +868,9 @@
       <div class="location-info">
         <div class="location-detail">
           <span class="location-detail-label">Morada</span>
-          <span class="location-detail-value">Rua Fernandes Costa 15<br>4100-241 Porto</span>
+          <span class="location-detail-value">
+            Rua Fernandes Costa 15<br>4100-241 Porto
+          </span>
         </div>
         <div class="location-detail">
           <span class="location-detail-label">Metro</span>
@@ -614,24 +899,46 @@
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa Máquinas de Costura Porto">
+          title="Mapa — Máquinas de Costura Porto, Rua Fernandes Costa 15">
         </iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ── FOOTER ── -->
 <footer>
-  <p>© 2025 <span>Máquinas de Costura Porto</span> · Rua Fernandes Costa 15, Porto</p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="icon.png" alt="Logo Máquinas de Costura Porto">
+      <span>© 2025 <span>Máquinas de Costura Porto</span> · Rua Fernandes Costa 15, Porto</span>
+    </div>
+    <span>
+      <a href="tel:+351919360824">+351 919 360 824</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:maquinasdecosturaporto@gmail.com">maquinasdecosturaporto@gmail.com</a>
+    </span>
+  </div>
 </footer>
 
-<!-- CHATBASE WIDGET — substitui o src pelo teu snippet real do Chatbase -->
+<!-- ══════════════════════════════════════════
+     CHATBASE — AGENTE IA
+     1. Vai a chatbase.co, cria um chatbot
+     2. Copia o teu chatbotId
+     3. Substitui SEU_ID_AQUI abaixo
+     4. Remove os comentários <!-- e --> ao redor
+══════════════════════════════════════════ -->
 <!--
 <script>
-  window.chatbaseConfig = { chatbotId: "SEU_ID_AQUI" }
+  window.chatbaseConfig = {
+    chatbotId: "SEU_ID_AQUI"
+  }
 </script>
-<script src="https://www.chatbase.co/embed.min.js" defer></script>
+<script
+  src="https://www.chatbase.co/embed.min.js"
+  id="SEU_ID_AQUI"
+  defer>
+</script>
 -->
 
 </body>
