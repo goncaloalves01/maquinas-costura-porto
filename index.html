@@ -9,14 +9,14 @@
 <meta name="description" content="Especialistas em máquinas de costura no Porto. Venda, reparação, manutenção e restauro de máquinas antigas Singer, Pfaff e outras. Loja no coração do Porto.">
 <meta name="keywords" content="máquinas de costura Porto, reparação máquinas costura, restauro Singer, Pfaff Porto, acessórios costura Porto">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://maquinasdecosturaporto.pt/">
+<link rel="canonical" href="https://maquinascosturaporto.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://maquinasdecosturaporto.pt/">
+<meta property="og:url" content="https://maquinascosturaporto.com/">
 <meta property="og:title" content="Máquinas de Costura Porto — Venda, Reparação & Restauro">
 <meta property="og:description" content="Especialistas em máquinas de costura no Porto. Venda, reparação e restauro de máquinas antigas Singer, Pfaff e outras.">
-<meta property="og:image" content="https://maquinasdecosturaporto.pt/icon.png">
+<meta property="og:image" content="https://maquinascosturaporto.com/og-image.jpg">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="icon.png">
@@ -34,7 +34,7 @@
   "@type": "LocalBusiness",
   "name": "Máquinas de Costura Porto",
   "description": "Venda, reparação, manutenção e restauro de máquinas de costura. Especialistas em modelos antigos.",
-  "url": "https://maquinasdecosturaporto.pt",
+  "url": "https://maquinascosturaporto.com",
   "telephone": "+351919360824",
   "email": "maquinasdecosturaporto@gmail.com",
   "address": {
@@ -48,7 +48,7 @@
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "13:00" }
   ],
-  "image": "https://maquinasdecosturaporto.pt/icon.png"
+  "image": "https://maquinascosturaporto.com/og-image.jpg"
 }
 </script>
 
@@ -156,6 +156,68 @@
   }
 
   .nav-cta:hover { background: #6B2020 !important; }
+
+  /* Hambúrguer */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--dark);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Menu mobile dropdown */
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    background: rgba(247,243,238,0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-mobile-menu.open { display: flex; }
+
+  .nav-mobile-menu a {
+    font-size: 1rem;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-mobile-menu a:last-child { border-bottom: none; }
+  .nav-mobile-menu a:hover { color: var(--accent); }
+  .nav-mobile-menu .mobile-cta {
+    margin-top: 1rem;
+    background: var(--accent);
+    color: var(--white) !important;
+    text-align: center;
+    padding: 0.875rem !important;
+    border: none !important;
+    font-weight: 500;
+  }
 
   /* ── HERO ── */
   .hero {
@@ -273,7 +335,6 @@
     opacity: 0.85;
   }
 
-  /* placeholder quando não há foto */
   .hero-img-placeholder {
     width: 100%; height: 100%;
     display: flex;
@@ -311,7 +372,6 @@
     letter-spacing: 0.01em;
   }
 
-  /* pills de confiança */
   .hero-trust {
     display: flex;
     gap: 1.5rem;
@@ -443,37 +503,59 @@
   #galeria .section-label::before { background: var(--accent); }
   #galeria .section-sub { color: rgba(255,255,255,0.45); }
 
-  .gallery-pairs {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .gallery-pair {
+  /* Grid principal da galeria */
+  .gallery-grid {
     display: grid;
-    grid-template-columns: 1fr 48px 1fr;
-    gap: 0;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    gap: 6px;
   }
 
-  .gallery-slot {
-    aspect-ratio: 4/3;
+  .gallery-item {
     overflow: hidden;
     background: #1C1C1A;
     position: relative;
+    cursor: pointer;
   }
 
-  .gallery-slot img {
+  /* Primeiro item maior */
+  .gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .gallery-item img {
     width: 100%; height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
   }
 
-  .gallery-slot:hover img { transform: scale(1.04); }
+  .gallery-item:hover img { transform: scale(1.04); }
 
-  /* placeholder cinza escuro enquanto não há fotos */
-  .gallery-slot-placeholder {
+  /* Overlay com legenda */
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+  }
+
+  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+  .gallery-item-overlay span {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* Placeholder quando não há foto */
+  .gallery-placeholder {
     width: 100%; height: 100%;
     display: flex;
     flex-direction: column;
@@ -486,51 +568,6 @@
     text-transform: uppercase;
     background: #222220;
   }
-
-  .gallery-arrow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-  }
-
-  .gallery-arrow-icon {
-    background: var(--accent);
-    color: white;
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .gallery-labels {
-    display: grid;
-    grid-template-columns: 1fr 48px 1fr;
-    margin-top: 6px;
-  }
-
-  .gallery-label-before {
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  .gallery-label-after {
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-align: center;
-  }
-
-  /* Como adicionar fotos: substitui o div.gallery-slot-placeholder pelo:
-     <img src="antes-1.jpg" alt="Máquina Singer antes do restauro"> */
 
   /* ── LOCALIZAÇÃO ── */
   #localizacao { background: var(--cream); }
@@ -623,13 +660,43 @@
   footer a { color: var(--accent); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
+  /* ── WHATSAPP FLUTUANTE ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 0.875rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.6s 0.8s ease both;
+  }
+
+  .whatsapp-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+  }
+
+  .whatsapp-float svg { flex-shrink: 0; }
+
+  .whatsapp-label { white-space: nowrap; }
+
   /* ── ANIMAÇÕES ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* botão ligar — desktop mostra número, mobile mostra botão */
+  /* desktop: mostra número, esconde botão mobile */
   .hero-cta-mobile { display: none; }
   .hero-tel-desktop { display: flex; }
 
@@ -643,13 +710,18 @@
     .location-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+    .gallery-item.large { grid-column: span 2; grid-row: span 1; }
   }
 
   @media (max-width: 600px) {
     section { padding: 4rem 1.25rem; }
     .hero { padding: 5.5rem 1.25rem 3rem; }
-    .gallery-pair { grid-template-columns: 1fr 36px 1fr; }
-    .gallery-labels { grid-template-columns: 1fr 36px 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; }
+    .gallery-item.large { grid-column: span 2; grid-row: span 1; }
+    .whatsapp-float { left: 1rem; bottom: 1rem; padding: 0.75rem 1rem; }
+    .whatsapp-label { display: none; }
   }
 </style>
 </head>
@@ -669,7 +741,20 @@
     <li><a href="#galeria">Galeria</a></li>
     <li><a href="#localizacao">Localização</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- Menu mobile -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
+  <a href="#galeria" onclick="closeMobileMenu()">Galeria</a>
+  <a href="#localizacao" onclick="closeMobileMenu()">Localização</a>
+  <a href="tel:+351919360824" class="mobile-cta">📞 Ligar agora</a>
+</div>
 
 <!-- ── HERO ── -->
 <div class="hero">
@@ -685,14 +770,6 @@
     </p>
     <div class="hero-actions">
       <a href="#servicos" class="hero-cta">Ver serviços →</a>
-      <a href="tel:+351919360824" class="hero-tel hero-tel-desktop">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        +351 919 360 824
-      </a>
-      <a href="tel:+351919360824" class="hero-cta hero-cta-mobile">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        Ligar agora
-      </a>
     </div>
     <div class="hero-trust">
       <span class="trust-pill">Orçamento gratuito</span>
@@ -773,93 +850,68 @@
 <section id="galeria">
   <div class="section-inner">
     <p class="section-label">O nosso trabalho</p>
-    <h2 class="section-title">Antes & Depois</h2>
-    <p class="section-sub">Cada restauro é único. O resultado fala por si.</p>
+    <h2 class="section-title">Galeria</h2>
+    <p class="section-sub">Máquinas restauradas, reparadas e prontas para continuar a costurar.</p>
 
-    <div class="gallery-pairs">
+    <!--
+      COMO ADICIONAR FOTOS:
+      Substitui cada <div class="gallery-placeholder">…</div> por:
+      <img src="nome-da-foto.jpg" alt="descrição da foto">
 
-      <!-- PAR 1 ─────────────────────────────────────
-           Para adicionar fotos reais:
-           Substitui cada <div class="gallery-slot-placeholder">…</div>
-           por: <img src="antes-1.jpg" alt="…">
-           dentro do respetivo <div class="gallery-slot">
-      ──────────────────────────────────────────────── -->
-      <div>
-        <div class="gallery-pair">
-          <div class="gallery-slot">
-            <!-- ANTES 1: substitui por <img src="antes-1.jpg" alt="Singer antes do restauro"> -->
-            <div class="gallery-slot-placeholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>foto antes</span>
-            </div>
-          </div>
-          <div class="gallery-arrow">
-            <div class="gallery-arrow-icon">→</div>
-          </div>
-          <div class="gallery-slot">
-            <!-- DEPOIS 1: substitui por <img src="depois-1.jpg" alt="Singer após restauro"> -->
-            <div class="gallery-slot-placeholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>foto depois</span>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-labels">
-          <p class="gallery-label-before">Antes</p>
-          <div></div>
-          <p class="gallery-label-after">Depois</p>
+      Exemplo:
+      <div class="gallery-item large">
+        <img src="singer-restaurada.jpg" alt="Singer 201 restaurada">
+        <div class="gallery-item-overlay"><span>Singer 201 — Restauro completo</span></div>
+      </div>
+    -->
+
+    <div class="gallery-grid">
+
+      <!-- Foto destaque (ocupa 2 colunas) -->
+      <div class="gallery-item large">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>foto destaque</span>
         </div>
       </div>
 
-      <!-- PAR 2 -->
-      <div>
-        <div class="gallery-pair">
-          <div class="gallery-slot">
-            <div class="gallery-slot-placeholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>foto antes</span>
-            </div>
-          </div>
-          <div class="gallery-arrow">
-            <div class="gallery-arrow-icon">→</div>
-          </div>
-          <div class="gallery-slot">
-            <div class="gallery-slot-placeholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>foto depois</span>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-labels">
-          <p class="gallery-label-before">Antes</p>
-          <div></div>
-          <p class="gallery-label-after">Depois</p>
+      <!-- Foto 2 -->
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>foto 2</span>
         </div>
       </div>
 
-      <!-- PAR 3 -->
-      <div>
-        <div class="gallery-pair">
-          <div class="gallery-slot">
-            <div class="gallery-slot-placeholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>foto antes</span>
-            </div>
-          </div>
-          <div class="gallery-arrow">
-            <div class="gallery-arrow-icon">→</div>
-          </div>
-          <div class="gallery-slot">
-            <div class="gallery-slot-placeholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>foto depois</span>
-            </div>
-          </div>
+      <!-- Foto 3 -->
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>foto 3</span>
         </div>
-        <div class="gallery-labels">
-          <p class="gallery-label-before">Antes</p>
-          <div></div>
-          <p class="gallery-label-after">Depois</p>
+      </div>
+
+      <!-- Foto 4 -->
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>foto 4</span>
+        </div>
+      </div>
+
+      <!-- Foto 5 -->
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>foto 5</span>
+        </div>
+      </div>
+
+      <!-- Foto 6 -->
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>foto 6</span>
         </div>
       </div>
 
@@ -920,7 +972,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="icon.png" alt="Logo Máquinas de Costura Porto">
-      <span>© 2025 <span>Máquinas de Costura Porto</span> · Rua Fernandes Costa 15, Porto</span>
+      <span>© 2026 <span>Máquinas de Costura Porto</span> · Rua Fernandes Costa 15, Porto</span>
     </div>
     <span>
       <a href="tel:+351919360824">+351 919 360 824</a>
@@ -930,13 +982,15 @@
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════
-     CHATBASE — AGENTE IA
-     1. Vai a chatbase.co, cria um chatbot
-     2. Copia o teu chatbotId
-     3. Substitui N2TQwf0sQsS8SyPIELtJB abaixo
-     4. Remove os comentários <!-- e --> ao redor
-══════════════════════════════════════════ -->
+<!-- ── WHATSAPP FLUTUANTE ── -->
+<a href="https://wa.me/351918839823?text=Olá%2C%20gostaria%20de%20pedir%20um%20orçamento." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="whatsapp-label">Pedir orçamento</span>
+</a>
+
+<!-- ── CHATBASE ── -->
 <script>
   window.chatbaseConfig = {
     chatbotId: "N2TQwf0sQsS8SyPIELtJB"
@@ -946,6 +1000,29 @@
   src="https://www.chatbase.co/embed.min.js"
   id="N2TQwf0sQsS8SyPIELtJB"
   defer>
+</script>
+
+<!-- ── HAMBÚRGUER JS ── -->
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // Fecha ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
 </script>
 
 </body>
